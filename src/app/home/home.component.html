@@ -1,0 +1,74 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+<div class="wrapper">
+  <div class="whitelist-add">
+    <div>
+      <div class="container">
+        <h1>Whitelist - Add</h1>
+      </div>
+    </div>
+    <hr>
+
+    <div class="container">
+      <form method="post" enctype="multipart/form-data" action="http://localhost:8080/api/v1/individual" target="_self">
+          Name:
+            <input type="text" name="firstName" placeholder="First" required>
+            <input type="text" name="middleName" placeholder="Middle (Optional)">
+            <input type="text" name="lastName" placeholder="Last" required><br/>
+          Identification Number:
+            <input type="text" name="identification" placeholder="Verified Identification Number" required><br/>
+          Photo Identification:
+            <input type="file" id="image_uploads" name="file" (change)="selectAddFile($event)" accept=".jpg, .jpeg, .png" required><br/>
+          <img [src]="addUrl" *ngIf="addUrl" class="uploadedImage"><br/>
+          <button type="submit">Add User</button>
+      </form>
+    </div> <!-- /container -->
+  </div>
+
+
+  <div class="whitelist-verify">
+    <div>
+      <div class="container">
+        <h1>Verify Person</h1>
+      </div>
+    </div>
+    <hr>
+
+    <div class="container">
+      <form method="post" enctype="multipart/form-data" target="_self" action="http://localhost:8080/api/v1/individual/verify">
+        Photo:
+        <input type="file" name="file" (change)="selectVerifyFile($event)" accept=".jpg, .jpeg, .png" required>
+        <br/>
+        <img [src]="verifyUrl" *ngIf="verifyUrl" class="uploadedImage">
+        <br/>
+        <button type="submit">Verify</button>
+      </form>
+    </div> <!-- /container -->
+    <div *ngIf="verificationResultIndividual">{{verificationResultIndividual}}</div>
+  </div>
+
+  <div class="whitelist-stats">
+    <div>
+      <div class="container">
+        <h1>Collection Stats</h1>
+      </div>
+    </div>
+    <hr>
+
+    <div class="container">
+      <table style="width:100%">
+        <caption>Collection List</caption>
+        <tr>
+          <th>Collection Name</th>
+          <th>Face Count</th>
+        </tr>
+        <tr *ngFor="let awsIndex of awsCollectionList">
+          <td>{{awsIndex.bucketName}}</td>
+          <td>{{awsIndex.numberOfImages}}</td>
+        </tr>
+      </table>
+    </div> <!-- /container -->
+  </div>
+
+</div>
+<hr>
