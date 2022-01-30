@@ -4,7 +4,7 @@
   <div class="whitelist-add">
     <div>
       <div class="container">
-        <h1>Whitelist - Add</h1>
+        <h1>Add user to collection</h1>
       </div>
     </div>
     <hr>
@@ -26,26 +26,6 @@
   </div>
 
 
-  <div class="whitelist-verify">
-    <div>
-      <div class="container">
-        <h1>Verify Person</h1>
-      </div>
-    </div>
-    <hr>
-
-    <div class="container">
-      <form method="post" enctype="multipart/form-data" target="_self" action="http://localhost:8080/api/v1/individual/verify">
-        Photo:
-        <input type="file" name="file" (change)="selectVerifyFile($event)" accept=".jpg, .jpeg, .png" required>
-        <br/>
-        <img [src]="verifyUrl" *ngIf="verifyUrl" class="uploadedImage">
-        <br/>
-        <button type="submit">Verify</button>
-      </form>
-    </div> <!-- /container -->
-    <div *ngIf="verificationResultIndividual">{{verificationResultIndividual}}</div>
-  </div>
 
   <div class="whitelist-stats">
     <div>

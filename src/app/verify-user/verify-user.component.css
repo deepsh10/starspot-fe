@@ -1,0 +1,34 @@
+input,
+label,
+button{
+    margin: .4rem 0;
+    font-family: 'Trebuchet MS';
+}
+
+textarea{
+  font-family: 'Trebuchet MS';
+  resize: none;
+}
+
+.whitelist-verify{
+  padding: 50px;
+  margin: 50px;
+  font-family: 'Trebuchet MS';
+  display:table-cell;
+  text-align:left;
+  border-top-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  width: min-content;
+}
+
+.wrapper{
+  width:100%;
+  display:table;
+}
+
+.uploadedImage{
+    height:170px;
+    width:auto;
+    max-width:500px;
+}
