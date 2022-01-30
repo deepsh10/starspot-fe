@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { routing } from './app-routing.module';
+import { VerifyUserComponent } from './verify-user/verify-user.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { routing } from './app-routing.module';
     SiteHeaderComponent,
     SiteFooterComponent,
     SiteLayoutComponent,
-    HomeComponent
+    HomeComponent,
+    VerifyUserComponent
   ],
   imports: [
     BrowserModule,

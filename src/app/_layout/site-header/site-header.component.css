@@ -5,7 +5,7 @@
   font-family: 'Trebuchet MS';
 }
 
-.header-div label {
+.header-div a {
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -14,12 +14,12 @@
   font-size: 17px;
 }
 
-.header-div label:hover {
+.header-div a:hover {
   background-color: #ddd;
   color: black;
 }
 
-.header-div label.active {
+.header-div a.active {
   background-color: #04AA6D;
   color: white;
 }
