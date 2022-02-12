@@ -1,0 +1,62 @@
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+<div class="wrapper">
+  <div class="whitelist-add">
+    <div>
+      <div class="container">
+        <h1>Add user to collection</h1>
+      </div>
+    </div>
+    <hr>
+
+    <div class="container">
+      <form>
+          Name:
+            <input type="text" name="firstName" placeholder="First" [(ngModel)]="firstName" required>
+            <input type="text" name="middleName" placeholder="Middle (Optional)" [(ngModel)]="middleName">
+            <input type="text" name="lastName" placeholder="Last" [(ngModel)]="lastName" required><br/>
+          Identification Number:
+            <input type="text" name="identification" placeholder="Verified Identification Number" [(ngModel)]="identification" required><br/>
+          Photo Identification:
+            <input type="file" id="image_uploads" name="file" (change)="selectAddFile($event)" [(ngModel)]="file" accept=".jpg, .jpeg, .png" required><br/>
+          Collection Type:
+            <select required name="collectionType" [(ngModel)]="collectionType" >
+              <option value="blacklist">BlackList</option>
+              <option value="whitelist">WhiteList</option>
+            </select><br/><br/>
+          <img [src]="addUrl" *ngIf="addUrl" class="uploadedImage"><br/>
+          <button type="submit" (click)="submitForm()">Add User</button>
+      </form>
+      <div>
+        <label>{{this.uploadProgressMessage}}</label>
+      </div>
+    </div> <!-- /container -->
+  </div>
+
+
+
+  <div class="whitelist-stats">
+    <div>
+      <div class="container">
+        <h1>Collection Stats</h1>
+      </div>
+    </div>
+    <hr>
+
+    <div class="container">
+      <table style="width:100%">
+        <caption>Collection List</caption>
+        <tr>
+          <th>Collection Name</th>
+          <th>Face Count</th>
+        </tr>
+        <tr *ngFor="let awsIndex of awsCollectionList">
+          <td>{{awsIndex.collectionName}}</td>
+          <td>{{awsIndex.numberOfImages}}</td>
+        </tr>
+      </table>
+    </div> <!-- /container -->
+  </div>
+
+</div>
+<hr>

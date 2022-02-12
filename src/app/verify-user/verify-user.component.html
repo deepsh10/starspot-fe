@@ -1,0 +1,52 @@
+<div class="whitelist-verify">
+  <div>
+    <div class="container">
+      <h1>Verify Person</h1>
+    </div>
+  </div>
+  <hr>
+
+  <div class="container">
+    <form>
+      Photo:
+      <input type="file" name="file" (change)="selectVerifyFile($event)" [(ngModel)]="postImageForVerification" accept=".jpg, .jpeg, .png" required>
+      <br/>
+      <img [src]="verifyUrl" *ngIf="verifyUrl" class="uploadedImage">
+      <br/>
+      Collection Type:
+      <select required name="collectionType" [(ngModel)]="collectionType">
+        <option value="blacklist">BlackList</option>
+        <option value="whitelist" selected>WhiteList</option>
+      </select><br/>
+      <button type="submit" (click)="awsVerifyImage()">Verify</button>
+    </form>
+    <div>
+      <label>{{this.uploadProgressMessage}}</label>
+      <table *ngIf="this.verificationResult.firstName!=null">
+        <tr>
+          <td>First Name</td>
+          <td>{{this.verificationResult.firstName}}</td>
+        </tr>
+        <tr *ngIf="this.verificationResult.middleName!=null">
+          <td>Last Name</td>
+          <td>{{this.verificationResult.middleName}}</td>
+        </tr>
+        <tr>
+          <td>Last Name</td>
+          <td>{{this.verificationResult.lastName}}</td>
+        </tr>
+        <tr>
+          <td>Identification Type</td>
+          <td>{{this.verificationResult.identifierType}}</td>
+        </tr>
+        <tr>
+          <td>Identifier</td>
+          <td>{{this.verificationResult.identifier}}</td>
+        </tr>
+      </table>
+    </div>
+  </div> <!-- /container -->
+  <div *ngIf="verificationResultIndividual">{{verificationResultIndividual}}</div>
+</div>
+
+<hr/>
